@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>รับสมัครนักเรียน นักศึกษารอบโควต้า 2569</title>
+	<style>
+		body {
+			font-family: 'Sarabun', Arial, sans-serif;
+			background: #f7f7f7;
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+			max-width: 500px;
+			margin: 40px auto;
+			background: #fff;
+			border-radius: 10px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+			padding: 32px 24px;
+		}
+		h1 {
+			color: #2d6a4f;
+			text-align: center;
+			margin-bottom: 16px;
+		}
+		.desc {
+			text-align: center;
+			color: #555;
+			margin-bottom: 24px;
+		}
+		label {
+			display: block;
+			margin-bottom: 8px;
+			color: #333;
+		}
+		input, select {
+			width: 100%;
+			padding: 8px;
+			margin-bottom: 16px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+		button {
+			width: 100%;
+			background: #2d6a4f;
+			color: #fff;
+			border: none;
+			padding: 12px;
+			border-radius: 4px;
+			font-size: 16px;
+			cursor: pointer;
+		}
+		button:hover {
+			background: #40916c;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>รับสมัครนักเรียน นักศึกษารอบโควต้า 2569</h1>
+		<div class="desc">
+			เปิดรับสมัครนักเรียน นักศึกษา รอบโควต้า ประจำปีการศึกษา 2569<br>
+			กรุณากรอกข้อมูลให้ครบถ้วนเพื่อสมัครเข้ารับการคัดเลือก
+		</div>
+		<form>
+			<label for="fullname">ชื่อ-นามสกุล</label>
+			<input type="text" id="fullname" name="fullname" required>
+
+			<label for="idcard">เลขบัตรประชาชน</label>
+			<input type="text" id="idcard" name="idcard" maxlength="13" required>
+
+			<label for="birthdate">วันเดือนปีเกิด</label>
+			<input type="date" id="birthdate" name="birthdate" required>
+
+			<label for="school">โรงเรียน/สถานศึกษา</label>
+			<input type="text" id="school" name="school" required>
+
+			<label for="quota">ประเภทโควต้า</label>
+			<select id="quota" name="quota" required>
+				<option value="">-- กรุณาเลือก --</option>
+				<option value="วิชาการ">โควต้า วิชาการ</option>
+				<option value="กีฬา">โควต้า กีฬา</option>
+				<option value="ศิลปวัฒนธรรม">โควต้า ศิลปวัฒนธรรม</option>
+				<option value="อื่นๆ">โควต้า อื่นๆ</option>
+			</select>
+
+			<label for="phone">เบอร์โทรศัพท์</label>
+			<input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+
+			<button type="submit">ส่งใบสมัคร</button>
+		</form>
+	</div>
+</body>
+</html>
