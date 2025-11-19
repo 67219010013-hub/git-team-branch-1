@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>สมัครนักเรียนนักศึกษารอบโควต้า 2569</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* small customizations */
+    .glass { background: rgba(255,255,255,0.6); backdrop-filter: blur(6px); }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-sky-50 via-white to-rose-50 min-h-screen text-slate-800">
+  <header class="max-w-6xl mx-auto p-6 md:p-10">
+    <div class="flex items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-rose-500 flex items-center justify-center text-white font-extrabold">Q</div>
+        <div>
+          <h1 class="text-2xl md:text-3xl font-extrabold">รับสมัครนักเรียนนักศึกษารอบโควต้า 2569</h1>
+          <p class="text-sm text-slate-600">ส่งใบสมัครออนไลน์ — ตรวจสถานะ — จัดการเอกสาร</p>
+        </div>
+      </div>
+      <div class="text-right">
+        <p class="text-sm text-slate-600">ติดต่อสอบถาม</p>
+        <p class="font-medium">อีเมล: quota2569@school.ac.th<br/>โทร: 02-123-4567</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 pb-16">
+    <section class="grid md:grid-cols-3 gap-6">
+      <!-- Left: form -->
+      <div class="md:col-span-2 glass rounded-2xl p-6 md:p-8 shadow-lg">
+        <h2 class="text-xl font-bold mb-3">แบบฟอร์มสมัครออนไลน์</h2>
+        <p class="text-sm text-slate-600 mb-6">กรุณากรอกข้อมูลให้ครบถ้วน — ฟิลด์ที่มีเครื่องหมาย * จำเป็นต้องกรอก</p>
+
+        <form id="quotaForm" class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-4">
+            <label class="block">
+              <span class="text-sm font-medium">ชื่อ-สกุล (ไทย) *</span>
+              <input name="fullname" required class="mt-1 block w-full rounded-lg border border-slate-200 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-300" placeholder="เช่น นายสมชาย ใจดี" />
+            </label>
+            <label class="block">
+              <span class="text-sm font-medium">เลขบัตรประชาชน / Passport *</span>
+              <input name="idno" required class="mt-1 block w-full rounded-lg border border-slate-200 px-4 py-2" placeholder="1234567890123" />
+            </label>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-4">
+            <label class="block">
+              <span class="text-sm font-medium">วันเกิด *</span>
+              <input type="date" name="dob" required class="mt-1 block w-full rounded-lg border border-slate-200 px-3 py-2" />
+            </label>
+            <label class="block">
+              <span class="text-sm font-medium">เพศ</span>
+              <select name="gender" class="mt-1 block w-full rounded-lg border border-slate-200 px-3 py-2">
+                <option>ชาย</option>
+                <option>หญิง</option>
+                <option>อื่น ๆ</option>
+              </select>
+            </label>
+            <label class="block">
+              <span class="text-sm font-medium">เบอร์ติดต่อ *</span>
+              <input name="phone" required class="mt-1 block w-full rounded-lg border border-slate-200 px-4 py-2" placeholder="08x-xxx-xxxx" />
+            </label>
+          </div>
+
+          <div>
+            <label class="block">
+              <span class="text-sm font-medium">ที่อยู่ปัจจุบัน</span>
+              <textarea name="address" rows="2" class="mt-1 block w-full rounded-lg border border-slate-200 px-4 py-2" placeholder="บ้านเลขที่ ตำบล อำเภอ จังหวัด"></textarea>
+            </label>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <label class="block">
+              <span class="text-sm font-medium">สถานศึกษา / โรงเรียนปัจจุบัน *</span>
+              <input name="school" required class="mt-1 block w-full rounded-lg border border-slate-200 px-4 py-2" placeholder="ชื่อสถานศึกษา" />
+            </label>
+            <label class="block">
+              <span class="text-sm font-medium">เฉลี่ยสะสม (GPA) *</span>
+              <input name="gpa" type="number" step="0.01" min="0" max="4" required class="mt-1 block w-full rounded-lg border border-slate-200 px-4 py-2" placeholder="เช่น 3.45" />
+            </label>
+          </div>
+
+          <div>
+            <label class="block">
+              <span class="text-sm font-medium">ประเภทโควต้า *</span>
+              <select name="quotaType" required class="mt-1 block w-full rounded-lg border border-slate-200 px-3 py-2">
+                <option value="regional">โควต้าพื้นที่/จังหวัด</option>
+                <option value="sport">โควต้ากีฬาฯ</option>
+                <option value="art">โควต้าศิลปวัฒนธรรม</option>
+                <option value="disability">โควต้าผู้พิการ</option>
+                <option value="other">อื่น ๆ</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4 items-end">
+            <label class="block">
+              <span class="text-sm font-medium">ไฟล์แนบ: รูปถ่าย (JPG/PNG) *</span>
+              <input type="file" name="photo" accept="image/*" required class="mt-1 block w-full text-sm" />
+            </label>
+            <label class="block">
+              <span class="text-sm font-medium">ไฟล์แนบ: เอกสาร (PDF) เช่น ใบ ปพ.1, ผลการเรียน *</span>
+              <input type="file" name="docs" accept="application/pdf" required class="mt-1 block w-full text-sm" />
+            </label>
+          </div>
+
+          <div>
+            <label class="inline-flex items-center gap-3">
+              <input type="checkbox" id="agree" required class="h-4 w-4" />
+              <span class="text-sm">ข้าพเจ้ายืนยันว่าข้อมูลที่ให้เป็นความจริงและถูกต้อง</span>
+            </label>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <button type="submit" class="px-6 py-2 rounded-xl bg-indigo-600 text-white font-semibold shadow hover:brightness-95">ส่งใบสมัคร</button>
+            <button type="reset" class="px-4 py-2 rounded-xl border border-slate-300">รีเซ็ต</button>
+            <div id="formMsg" class="text-sm text-rose-600"></div>
+          </div>
+        </form>
+
+        <!-- summary modal -->
+        <div id="summary" class="fixed inset-0 hidden items-center justify-center bg-black/40 p-4">
+          <div class="bg-white rounded-2xl shadow-lg max-w-2xl w-full p-6">
+            <h3 class="text-lg font-bold mb-3">สรุปข้อมูลการสมัคร</h3>
+            <div id="summaryContent" class="prose text-sm text-slate-700 max-h-64 overflow-auto"></div>
+            <div class="mt-4 text-right">
+              <button id="closeSummary" class="px-4 py-2 rounded-lg border">ปิด</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right: important info -->
+      <aside class="space-y-6">
+        <div class="glass rounded-2xl p-5 shadow">
+          <h4 class="font-bold">กำหนดการสำคัญ</h4>
+          <ul class="mt-3 space-y-2 text-sm text-slate-700">
+            <li>เปิดรับสมัคร: 1 กุมภาพันธ์ 2569</li>
+            <li>ปิดรับสมัคร: 28 กุมภาพันธ์ 2569</li>
+            <li>ประกาศรายชื่อผู้ผ่านการคัดเลือก: 20 มีนาคม 2569</li>
+            <li>ยืนยันสิทธิ์และยื่นเอกสาร: 1-10 เมษายน 2569</li>
+          </ul>
+        </div>
+
+        <div class="glass rounded-2xl p-5 shadow">
+          <h4 class="font-bold">เอกสารที่ต้องเตรียม</h4>
+          <ol class="mt-3 list-decimal ml-5 text-sm text-slate-700">
+            <li>สำเนาบัตรประชาชน</li>
+            <li>สำเนาทะเบียนบ้าน</li>
+            <li>รูปถ่ายขนาด 1 นิ้ว</li>
+            <li>ใบแสดงผลการเรียน (Transcript)</li>
+          </ol>
+        </div>
+
+        <div class="glass rounded-2xl p-5 shadow">
+          <h4 class="font-bold">วิธีการติดต่อ</h4>
+          <p class="text-sm mt-2">ฝ่ายรับสมัครโควต้า<br/>อีเมล: quota2569@school.ac.th<br/>โทร: 02-123-4567</p>
+          <div class="mt-3">
+            <a class="inline-block px-4 py-2 rounded-lg border" href="#">ดาวน์โหลดใบสมัคร (PDF)</a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Lower: FAQ & tips -->
+    <section class="mt-10 grid md:grid-cols-2 gap-6">
+      <div class="glass rounded-2xl p-6 shadow">
+        <h3 class="font-bold mb-3">คำถามที่พบบ่อย (FAQ)</h3>
+        <dl class="space-y-3 text-sm text-slate-700">
+          <div>
+            <dt class="font-medium">ถ้าลืมรหัสยืนยันต้องทำยังไง?</dt>
+            <dd class="mt-1">คลิกที่ปุ่ม "ขอรหัสใหม่" ในอีเมลแจ้งผล หรือติดต่อฝ่ายรับสมัคร</dd>
+          </div>
+          <div>
+            <dt class="font-medium">จะยืนยันสิทธิ์อย่างไร?</dt>
+            <dd class="mt-1">ผู้ที่ผ่านการคัดเลือกต้องอัพโหลดเอกสารภายในวันที่กำหนดและยืนยันผ่านระบบ</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="glass rounded-2xl p-6 shadow">
+        <h3 class="font-bold mb-3">เคล็ดลับการสมัคร</h3>
+        <ul class="list-disc ml-5 text-sm text-slate-700 space-y-2">
+          <li>เตรียมไฟล์เอกสารให้เรียบร้อยก่อนเริ่มสมัคร</li>
+          <li>ใช้เบราเซอร์ที่อัพเดตล่าสุดและเน็ตที่เสถียร</li>
+          <li>ตรวจสอบข้อมูลก่อนกดส่ง เพราะแก้ไขไม่ได้หลังส่งแล้ว</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="mt-8 py-6 border-t bg-white/60">
+    <div class="max-w-6xl mx-auto px-6 text-sm text-slate-600">&copy; 2569 ฝ่ายรับสมัครโควต้า — สงวนลิขสิทธิ์</div>
+  </footer>
+
+  <script>
+    // Simple client-side form handling for demo
+    const form = document.getElementById('quotaForm');
+    const formMsg = document.getElementById('formMsg');
+    const summary = document.getElementById('summary');
+    const summaryContent = document.getElementById('summaryContent');
+    const closeSummary = document.getElementById('closeSummary');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      formMsg.textContent = '';
+
+      const fd = new FormData(form);
+      // build a simple summary
+      let html = '<table class="w-full">';
+      html += <tr><td class="pr-4 font-medium">ชื่อ-สกุล</td><td>${fd.get('fullname') || '-'}</td></tr>;
+      html += <tr><td class="pr-4 font-medium">เลขบัตร/Passport</td><td>${fd.get('idno') || '-'}</td></tr>;
+      html += <tr><td class="pr-4 font-medium">วันเกิด</td><td>${fd.get('dob') || '-'}</td></tr>;
+      html += <tr><td class="pr-4 font-medium">สถานศึกษา</td><td>${fd.get('school') || '-'}</td></tr>;
+      html += <tr><td class="pr-4 font-medium">GPA</td><td>${fd.get('gpa') || '-'}</td></tr>;
+      html += <tr><td class="pr-4 font-medium">โควต้า</td><td>${fd.get('quotaType') || '-'}</td></tr>;
+      html += '</table>';
+
+      summaryContent.innerHTML = html;
+      summary.classList.remove('hidden');
+      summary.classList.add('flex');
+    });
+
+    closeSummary.addEventListener('click', () => {
+      summary.classList.add('hidden');
+      summary.classList.remove('flex');
+    });
+
+    // accessibility: close modal on escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !summary.classList.contains('hidden')) {
+        summary.classList.add('hidden');
+        summary.classList.remove('flex');
+      }
+    });
+  </script>
+</body>
+</html>
