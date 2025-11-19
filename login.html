@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>เข้าสู่ระบบ | ระบบรับสมัครโควต้า 2569</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .bg-pattern { background-image: radial-gradient(circle at 10% 10%, rgba(99,102,241,0.06), transparent 15%), radial-gradient(circle at 90% 90%, rgba(236,72,153,0.04), transparent 18%); }
+    </style>
+  </head>
+  <body class="min-h-screen bg-gradient-to-br from-sky-50 via-white to-rose-50 font-sans text-slate-800">
+
+    <div class="min-h-screen flex items-center justify-center p-6 bg-pattern">
+      <div class="max-w-4xl w-full grid md:grid-cols-2 gap-8 items-center">
+
+        <!-- Left: Branding / Info -->
+        <div class="hidden md:flex flex-col justify-center gap-6 p-8 rounded-2xl bg-white/80 shadow-lg backdrop-blur-md">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-600 to-rose-500 flex items-center justify-center text-white font-extrabold text-xl">Q</div>
+            <div>
+              <h1 class="text-2xl font-bold">ระบบรับสมัครโควต้า 2569</h1>
+              <p class="text-sm text-slate-600">เข้าสู่ระบบเพื่อจัดการใบสมัคร ตรวจสถานะ และดาวน์โหลดเอกสาร</p>
+            </div>
+          </div>
+
+          <div class="mt-4 text-sm text-slate-700 leading-relaxed space-y-2">
+            <p><span class="font-medium">สิทธิ์ผู้ใช้:</span> เจ้าหน้าที่รับสมัคร / ผู้สมัคร</p>
+            <p><span class="font-medium">ความปลอดภัย:</span> ใช้การเข้ารหัส HTTPS และรหัสผ่านที่รัดกุม</p>
+            <p>หากเป็นผู้สมัครใหม่ โปรดสมัครผ่านหน้าฟอร์มสมัครออนไลน์</p>
+          </div>
+
+          <div class="mt-auto">
+            <p class="text-xs text-slate-500">ติดต่อฝ่ายรับสมัคร: quota2569@school.ac.th | 02-123-4567</p>
+          </div>
+        </div>
+
+        <!-- Right: Login card -->
+        <div class="bg-white rounded-2xl p-8 shadow-xl border border-slate-100">
+          <h2 class="text-xl font-bold mb-1">เข้าสู่ระบบ</h2>
+          <p class="text-sm text-slate-600 mb-6">ลงชื่อเข้าใช้งานด้วยบัญชีของคุณ</p>
+
+          <form id="loginForm" class="space-y-4" autocomplete="on" novalidate>
+            <label class="block">
+              <span class="text-sm font-medium">รหัสนักเรียนนักศึกษา</span>
+              <input id="username" name="username" type="text" required class="mt-1 block w-full rounded-lg border border-slate-200 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="6721901099" />
+            </label>
+
+            <label class="block">
+              <span class="text-sm font-medium">รหัสผ่าน</span>
+              <div class="relative">
+                <input id="password" name="password" type="password" required class="mt-1 block w-full rounded-lg border border-slate-200 px-4 py-2 pr-28 focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="••••••••" />
+                <button type="button" id="togglePwd" class="absolute right-2 top-1/2 -translate-y-1/2 text-sm px-3 py-1 rounded-md border">แสดง</button>
+              </div>
+            </label>
+
+            <div class="flex items-center justify-between text-sm">
+              <label class="inline-flex items-center gap-2">
+                <input type="checkbox" id="remember" class="h-4 w-4" />
+                <span>จำฉันไว้</span>
+              </label>
+              <a href="#" id="forgot" class="text-indigo-600 hover:underline">ลืมรหัสผ่าน?</a>
+            </div>
+
+            <div>
+              <button type="submit" class="w-full px-4 py-2 rounded-xl bg-indigo-600 text-white font-semibold shadow hover:brightness-95">เข้าสู่ระบบ</button>
+            </div>
+
+            <div id="msg" role="status" class="text-sm text-rose-600"></div>
+
+            <p class="text-center text-sm text-slate-600">หรือ <a href="register.html" id="toregister" class="text-indigo-600 hover:underline">สมัครผู้ใช้ใหม่</a></p>
+          </form>
+
+          <div class="mt-6 text-xs text-slate-500">
+            <p>หมายเหตุ: หน้านี้เป็นแบบจำลองการเข้าสู่ระบบสำหรับระบบรับสมัคร หากต้องการเชื่อมต่อกับระบบจริง โปรดแจ้งให้ทีมไอทีมาดำเนินการเชื่อมต่อฐานข้อมูลและระบบยืนยันตัวตน</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script>
+      // toggle password visibility
+      const toggle = document.getElementById('togglePwd');
+      const pwd = document.getElementById('password');
+      toggle.addEventListener('click', () => {
+        if (pwd.type === 'password') { pwd.type = 'text'; toggle.textContent = 'ซ่อน'; }
+        else { pwd.type = 'password'; toggle.textContent = 'แสดง'; }
+      });
+
+      // simple client-side 'mock' auth for demo
+      const form = document.getElementById('loginForm');
+      const msg = document.getElementById('msg');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        msg.textContent = '';
+        const u = document.getElementById('username').value.trim();
+        const p = document.getElementById('password').value;
+
+        // basic validation
+        if (!u || !p) { msg.textContent = 'กรุณากรอกอีเมล/ชื่อผู้ใช้และรหัสผ่าน'; return; }
+
+        // demo credentials (for prototype only)
+        const demoUsers = [
+          { user: 'admin@tech.ac.th', pass: 'Admin@2569', role: 'staff' },
+          { user: 'applicant@example.com', pass: 'Applicant1', role: 'applicant' }
+        ];
+
+        const found = demoUsers.find(d => (d.user === u || d.user.split('@')[0] === u) && d.pass === p);
+        if (found) {
+          msg.classList.remove('text-rose-600');
+          msg.classList.add('text-emerald-600');
+          msg.textContent = 'เข้าสู่ระบบสำเร็จ กำลังนำไปยังหน้าจัดการ...';
+
+          // simulate redirect
+          setTimeout(() => {
+            window.location.href = 'index.html';
+          }, 900);
+        } else {
+          msg.classList.remove('text-emerald-600');
+          msg.classList.add('text-rose-600');
+          msg.textContent = 'อีเมล/รหัสผ่านไม่ถูกต้อง';
+        }
+      });
+
+      // keyboard accessibility: submit on Enter when focused
+      document.getElementById('username').addEventListener('keydown', (e) => { if (e.key === 'Enter') document.getElementById('password').focus(); });
+
+      // Forgot password handler (demo)
+      document.getElementById('forgot').addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('ระบบส่งลิงก์รีเซ็ตรหัสผ่านไปยังอีเมลที่ลงทะเบียน (จำลอง)');
+      });
+
+      // Register link
+      document.getElementById('toRegister').addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.href = 'สมัครนักเรียนนักศึกษารอบโควต้้า 2569 - index.html';
+      });
+    </script>
+  </body>
+</html>
